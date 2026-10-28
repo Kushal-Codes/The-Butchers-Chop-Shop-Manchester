@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+    --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #191622;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-ticket {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Subtle Butcher Shop Tile Grid Pattern */
+.bg-tile-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(124, 58, 237, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(124, 58, 237, 0.06) 1px, transparent 1px);
+  background-size: 48px 24px;
+}
+
+/* Springy Pig Mascot Entrance */
+@keyframes pig-spring-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.75) rotate(-8deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.04) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.animate-pig-entrance {
+  animation: pig-spring-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Hand-Drawn SVG Stroke Animation */
+@keyframes draw-stroke {
+  0% {
+    stroke-dasharray: 1600;
+    stroke-dashoffset: 1600;
+  }
+  100% {
+    stroke-dasharray: 1600;
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw-stroke {
+  animation: draw-stroke 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Marquee Animation */
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 26s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Barber Pole Stripes Animation */
+@keyframes barber-pole-slide {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-48px);
+  }
+}
+
+.animate-barber-pole {
+  animation: barber-pole-slide 3s linear infinite;
+}
+
+/* Rotating Proper Dapper Stamp */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee,
+  .animate-barber-pole,
+  .animate-spin-slow,
+  .animate-pig-entrance,
+  .animate-draw-stroke {
+    animation: none !important;
+  }
+}

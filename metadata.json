@@ -1,0 +1,6 @@
+{
+  "name": "The Butchers Chop Shop — Manchester Barber Shop",
+  "description": "Proper Dapper. Proper Chop. Contemporary Manchester barbering inside the historic Royal Exchange Arcade. Haircuts, restyles, beard trims & hot towel shaves.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
